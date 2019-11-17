@@ -1,0 +1,23 @@
+A seguir alguns comandos do angular/cli para criar projetos, component, serviços, classes etc...
+
+===== Verificar a versão do Angular CLI
+ng --version
+
+===== Criar aplicação angular 
+ng new nome-da-aplicação
+
+===== Entrar na pasta do projeto 
+cd nome-da-aplicação
+
+===== Abrir o projeto no VS Code
+code .
+
+===== Criar um component 
+ng g c nome-do-component
+
+===== Criar serviço
+ng g s nome-do-serviço
+
+===== Criar classe
+ng g class nome-da-classe
+

@@ -1,0 +1,5 @@
+1 - Criar banco de dados [Labolatorio] e tabela [tab_clientes] - Configurar usuário na base
+
+2 - Baixar o Entity Framework [Manage NuGet Package]
+
+3 - Configurar conexão [Web.config] 

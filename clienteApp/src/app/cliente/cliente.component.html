@@ -1,0 +1,87 @@
+
+<div class="container _container">
+  <div class="card">
+    <div class="card-header bg-primary text-white">ASP.NET - Angular 7 - CRUD</div>
+    <div class="card-body">        
+      <form [formGroup]="clienteForm"(ngSubmit)="onFormSubmit(clienteForm.value)">
+         <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" class="form-control" placeholder="Nome" formControlName="Nome">
+                 <span *ngIf="!clienteForm.get('Nome').value && clienteForm.get('Nome').touched"></span>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Endereço</label>
+                    <input type="text" class="form-control" placeholder="Endereço" formControlName="Endereco">
+                   <span *ngIf="!clienteForm.get('Endereco').value && clienteForm.get('Endereco').touched"></span>
+                  </div>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Telefone</label>
+                    <input type="text" class="form-control" placeholder="Telefone" formControlName="Telefone">
+                  <span *ngIf="!clienteForm.get('Telefone').value && clienteForm.get('Telefone').touched"></span>
+                  </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" class="form-control" placeholder="E-mail" formControlName="Email">
+                   <span *ngIf="!clienteForm.get('Email').value && clienteForm.get('Email').touched"></span>
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Cidade</label>
+                    <input    type  = "text" class = "form-control" placeholder = "Cidade" formControlName = "Cidade">
+                    <span *ngIf = "!clienteForm.get('Cidade').value && clienteForm.get('Cidade').touched"></span>
+                  </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <button type="submit" class="btn btn-success" [disabled]="!clienteForm.valid">Salvar</button>&nbsp;
+               <button type="reset" (click)="resetForm()" class="btn btn-danger">Limpar</button>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+             <p *ngIf="dataSaved" class="text-success">{{massage}}</p>
+            </div>
+         </div>
+         <br>
+         <br>
+         <table class="table table-bordered">
+            <tr ngclass="btn-primary">
+              <th>Id</th>
+              <th>Nome</th>
+              <!--<th>Endereço</th>-->
+              <th>Telefone</th>
+              <th>E-mail</th>
+             <!-- <th>Cidade</th>-->
+              <th>Ação</th>
+            </tr>
+            <tr *ngFor="let cliente of allClientes | async">
+              <td>{{cliente.Id}}</td>
+              <td>{{cliente.Nome}}</td>
+              <!--<td>{{cliente.Endereco}}</td>-->
+              <td>{{cliente.Telefone}}</td>
+              <td>{{cliente.Email}}</td>
+              <!--<td>{{cliente.Cidade}}</td>-->
+              <td>
+                  <button type="button" class="btn btn-primary btn-sm" (click)="loadClienteToEdit(cliente.Id)">Editar</button>&nbsp;
+                  <button type="button" class="btn btn-primary btn-sm" (click)="deleteCliente(cliente.Id)">Remover</button>
+              </td>            
+            </tr>
+         </table>
+      </form>
+    </div>
+    
+  </div>
+</div>
